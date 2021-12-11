@@ -270,7 +270,7 @@ def QA_fetch_bitmex_kline(
 
         datas.extend(klines)
 
-        if (callback_func is not None):
+        if (callback_func != None):
             frame = format_btimex_data_fields(klines, frequency)
             callback_func(frame, Bitmex2QA_FREQUENCY_DICT[frequency])
 
@@ -336,7 +336,7 @@ def QA_fetch_bitmex_kline_min(
         reqParams['to'] = int(reqParams['from'] - 1)
         reqParams['from'] = int(reqParams['from'] - FREQUENCY_SHIFTING[frequency])
 
-        if (callback_func is not None):
+        if (callback_func != None):
             frame = format_btimex_data_fields(klines, frequency)
             callback_func(frame, Bitmex2QA_FREQUENCY_DICT[frequency])
 

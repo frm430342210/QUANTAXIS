@@ -183,7 +183,7 @@ def QA_fetch_huobi_kline(
                 datas.append(kline)
             # 狗日huobi.pro的REST API kline时间戳排序居然是倒序向前获取，必须从后向前获取，而且有数量限制，
             # Request < 2000,
-            if (callback_func is not None):
+            if (callback_func != None):
                 frame = format_huobi_data_fields(datas, symbol, frequency)
                 callback_func(frame, freq=Huobi2QA_FREQUENCY_DICT[frequency])
 

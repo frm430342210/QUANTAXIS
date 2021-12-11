@@ -292,7 +292,7 @@ def QA_fetch_binance_kline(
 
         datas.extend(klines)
 
-        if (callback_func is not None):
+        if (callback_func != None):
             frame = format_binance_data_fields(klines, symbol, frequency)
             callback_func(frame, Binance2QA_FREQUENCY_DICT[frequency])
 
@@ -358,7 +358,7 @@ def QA_fetch_binance_kline_min(
         reqParams['to'] = int(reqParams['from'] - 1)
         reqParams['from'] = int(reqParams['from'] - FREQUENCY_SHIFTING[frequency])
 
-        if (callback_func is not None):
+        if (callback_func != None):
             frame = format_binance_data_fields(klines, symbol, frequency)
             callback_func(frame, Binance2QA_FREQUENCY_DICT[frequency])
 

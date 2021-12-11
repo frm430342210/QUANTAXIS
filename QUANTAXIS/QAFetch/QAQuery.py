@@ -1016,7 +1016,7 @@ def QA_fetch_stock_block(
     format='pd',
     collections=DATABASE.stock_block
 ):
-    if code is not None:
+    if code != None:
         code = QA_util_code_tolist(code)
         data = pd.DataFrame(
             [
@@ -1411,7 +1411,7 @@ def QA_fetch_financial_report(code, report_date, ltype='EN', db=DATABASE):
     #EN_columns = pd.Index(EN_columns)
 
     try:
-        if code is not None and report_date is not None:
+        if code != None and report_date != None:
             data = [
                 item for item in collection.find(
                     {
@@ -1426,7 +1426,7 @@ def QA_fetch_financial_report(code, report_date, ltype='EN', db=DATABASE):
                     batch_size=10000
                 )
             ]
-        elif code is None and report_date is not None:
+        elif code is None and report_date != None:
             data = [
                 item for item in collection.find(
                     {'report_date': {
@@ -1436,7 +1436,7 @@ def QA_fetch_financial_report(code, report_date, ltype='EN', db=DATABASE):
                     batch_size=10000
                 )
             ]
-        elif code is not None and report_date is None:
+        elif code != None and report_date is None:
             data = [
                 item for item in collection
                 .find({'code': {
@@ -1818,13 +1818,13 @@ def QA_fetch_cryptocurrency_min(
         _data.append(
             [
                 str(item['symbol']),
-                float(item['open']) if (item['open'] is not None) else item['open'],
-                float(item['high']) if (item['high'] is not None) else item['high'],
-                float(item['low']) if (item['low'] is not None) else item['low'],
-                float(item['close']) if (item['close'] is not None) else item['close'],
-                float(item['volume']) if (item['volume'] is not None) else item['volume'],
-                float(item['trade']) if (item['trade'] is not None) else item['trade'],
-                float(item['amount']) if (item['amount'] is not None) else item['amount'],
+                float(item['open']) if (item['open'] != None) else item['open'],
+                float(item['high']) if (item['high'] != None) else item['high'],
+                float(item['low']) if (item['low'] != None) else item['low'],
+                float(item['close']) if (item['close'] != None) else item['close'],
+                float(item['volume']) if (item['volume'] != None) else item['volume'],
+                float(item['trade']) if (item['trade'] != None) else item['trade'],
+                float(item['amount']) if (item['amount'] != None) else item['amount'],
                 item['time_stamp'],
                 item['date'],
                 item['datetime'],

@@ -116,7 +116,7 @@ class QASingleFactor_DailyBase():
         if start is None and end is None:
             res = self.client.query_dataframe(
                 'SELECT * FROM {}'.format(self.factor_name))
-            if res is not None:
+            if res != None:
                 res.columns = ['date', 'code', self.factor_name]
                 return res.set_index(['date', 'code']).sort_index()
             else:

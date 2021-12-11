@@ -8026,7 +8026,7 @@ def QA_util_get_trade_range(start, end):
             参数支持: []
     """
     start, end = QA_util_get_real_datelist(start, end)
-    if start is not None:
+    if start != None:
         return trade_date_sse[
             trade_date_sse.index(start) : trade_date_sse.index(end) + 1 : 1
         ]
@@ -8050,7 +8050,7 @@ def QA_util_get_trade_gap(start, end):
             参数支持: []
     """
     start, end = QA_util_get_real_datelist(start, end)
-    if start is not None:
+    if start != None:
         return trade_date_sse.index(end) + 1 - trade_date_sse.index(start)
     else:
         return 0

@@ -664,7 +664,7 @@ def QA_fetch_stock_block_adv(
                           "code"],
                          drop=False)
         )
-    elif code is not None and blockname is None:
+    elif code != None and blockname is None:
         # 返回这个股票代码所属的板块
         data = pd.DataFrame(
             [item for item in collections.find({'code': {
@@ -678,7 +678,7 @@ def QA_fetch_stock_block_adv(
                             'code'],
                            drop=True).drop_duplicates()
         )
-    elif blockname is not None and code is None:
+    elif blockname != None and code is None:
         #
         # 🛠 todo fnished 返回 这个板块所有的股票
         # 返回该板块所属的股票
@@ -716,7 +716,7 @@ def QA_fetch_stock_realtime_adv(
     :param collections:  realtime_XXXX-XX-XX 每天实时时间
     :return: DataFrame
     '''
-    if code is not None:
+    if code != None:
         # code 必须转换成list 去查询数据库
         if isinstance(code, str):
             code = [code]

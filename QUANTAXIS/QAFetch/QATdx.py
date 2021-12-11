@@ -70,7 +70,7 @@ def ping(ip, port=7709, type_='stock'):
             with api.connect(ip, port, time_out=0.7):
                 res = api.get_security_list(0, 1)
 
-                if res is not None:
+                if res != None:
                     if len(api.get_security_list(0, 1)) > 800:
                         return datetime.datetime.now() - __time1
                     else:
@@ -83,7 +83,7 @@ def ping(ip, port=7709, type_='stock'):
         elif type_ in ['future']:
             with apix.connect(ip, port, time_out=0.7):
                 res = apix.get_instrument_count()
-                if res is not None:
+                if res != None:
                     if res > 20000:
                         return datetime.datetime.now() - __time1
                     else:
@@ -228,8 +228,8 @@ def get_extensionmarket_ip(ip, port):
         ip = best_ip['future']['ip']
         port = best_ip['future']['port']
     elif ip is None and port is None and \
-            best_ip['future']['ip'] is not None and \
-            best_ip['future']['port'] is not None:
+            best_ip['future']['ip'] != None and \
+            best_ip['future']['port'] != None:
         ip = best_ip['future']['ip']
         port = best_ip['future']['port']
     else:
@@ -253,8 +253,8 @@ def get_mainmarket_ip(ip, port):
         ip = best_ip['stock']['ip']
         port = best_ip['stock']['port']
     elif ip is None and port is None and \
-            best_ip['stock']['ip'] is not None and \
-            best_ip['stock']['port'] is not None:
+            best_ip['stock']['ip'] != None and \
+            best_ip['stock']['port'] != None:
         ip = best_ip['stock']['ip']
         port = best_ip['stock']['port']
     else:
@@ -293,7 +293,7 @@ def QA_fetch_get_security_bars(code, _type, lens, ip=None, port=None):
                         lambda x: QA_util_time_stamp(x)),
                     type=_type, code=str(code)) \
             .set_index('datetime', drop=False, inplace=False).tail(lens)
-        if data is not None:
+        if data != None:
             return data
         else:
             return None
@@ -1366,6 +1366,13 @@ def QA_fetch_get_tdx_industry() -> pd.DataFrame:
     def read_industry(folder:str) -> pd.DataFrame:
         incon = folder + '/incon.dat' # tdx industry file
         hy = folder + '/tdxhy.cfg' # tdx stock file
+
+        # 下载base.zip缺失incon.dat临时解决方案
+        if os.path.exists(incon):
+            pass
+        else:
+            path = os.path.join(os.path.dirname(__file__), '../../config/incon.dat')
+            shutil.copy(path, incon)
 
         # tdx industry file
         with open(incon, encoding='GB18030', mode='r') as f:

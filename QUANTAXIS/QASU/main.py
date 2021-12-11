@@ -582,6 +582,8 @@ def QA_SU_save_stock_min_5(file_dir, client=DATABASE):
 
     return tdx_file.QA_save_tdx_to_mongo(file_dir, client)
 
+def QA_SU_save_stock_realtime():
+    return
 
 def QA_SU_crawl_eastmoney(action="zjlx", stockCode=None):
     '''

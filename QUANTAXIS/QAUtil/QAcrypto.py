@@ -226,8 +226,8 @@ def QA_util_find_missing_kline(
         if (expected is None):
             expected = int(leak_datetime[x].timestamp())
 
-        if ((expected is not None) and (x > 1) and (int(leak_datetime[x].timestamp()) != int(leak_datetime[x - 1].timestamp() + FREQUENCE_PERIOD_TIME[freq]))) or \
-            ((expected is not None) and (x > 1) and (x == len(leak_datetime) - 1)):
+        if ((expected != None) and (x > 1) and (int(leak_datetime[x].timestamp()) != int(leak_datetime[x - 1].timestamp() + FREQUENCE_PERIOD_TIME[freq]))) or \
+            ((expected != None) and (x > 1) and (x == len(leak_datetime) - 1)):
             between = int(
                 leak_datetime[x - 1].timestamp() + FREQUENCE_PERIOD_TIME[freq]
             )

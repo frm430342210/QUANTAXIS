@@ -243,7 +243,7 @@ def QA_util_tdxtimestamp(time_stamp):
         int
 
     """
-    if time_stamp is not None:
+    if time_stamp != None:
         time_stamp = str(time_stamp)
         time = time_stamp[:-6] + ':'
         if int(time_stamp[-6:-4]) < 60:

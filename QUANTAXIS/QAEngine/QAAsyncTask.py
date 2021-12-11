@@ -93,7 +93,7 @@ class QA_AsyncTask:
             context = {'message': "Job closing timed out",
                        'job': self,
                        'exception': exc}
-            if self._source_traceback is not None:
+            if self._source_traceback != None:
                 context['source_traceback'] = self._source_traceback
             scheduler.call_exception_handler(context)
         except Exception as exc:
@@ -115,7 +115,7 @@ class QA_AsyncTask:
         except asyncio.CancelledError:
             pass
         else:
-            if exc is not None and not self._explicit:
+            if exc != None and not self._explicit:
                 self._report_exception(exc)
                 scheduler._failed_tasks.put_nowait(task)
         self._scheduler = None  # drop backref
@@ -125,6 +125,6 @@ class QA_AsyncTask:
         context = {'message': "Job processing failed",
                    'job': self,
                    'exception': exc}
-        if self._source_traceback is not None:
+        if self._source_traceback != None:
             context['source_traceback'] = self._source_traceback
         self._scheduler.call_exception_handler(context)

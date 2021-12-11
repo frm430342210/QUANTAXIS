@@ -1198,7 +1198,7 @@ class _quotation_base():
             end = parser.parse(end).date() if end else end
 
         def _selects(code, start, end):
-            if end is not None:
+            if end != None:
                 return self.data.loc[(slice(start, end), code), :]
             else:
                 return self.data.loc[(slice(start, None), code), :]
@@ -1240,7 +1240,7 @@ class _quotation_base():
             end = parser.parse(end).date() if end else end
 
         def _select_time(start, end):
-            if end is not None:
+            if end != None:
                 return self.data.loc[(slice(start, end), slice(None)), :]
             else:
                 return self.data.loc[(slice(start, None), slice(None)), :]

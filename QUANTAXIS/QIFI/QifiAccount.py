@@ -183,7 +183,7 @@ class QIFI_Account():
                     self._trading_day = time.date() + datetime.timedelta(days=1)
                 elif time.weekday() in [4, 5, 6]:
                     self._trading_day = time.date() + datetime.timedelta(days=(7-time.weekday()))
-            if message is not None:
+            if message != None:
                 accpart = message.get('accounts')
 
                 self.money = message.get('money')

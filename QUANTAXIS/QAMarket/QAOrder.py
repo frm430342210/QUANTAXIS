@@ -150,13 +150,13 @@ class QA_Order():
         self.datetime = None
 
         # 🛠todo 移动到 Util 类中 时间处理函数
-        if datetime is None and date is not None:
+        if datetime is None and date != None:
             self.date = date
             self.datetime = '{} 09:31:00'.format(self.date)
-        elif date is None and datetime is not None:
+        elif date is None and datetime != None:
             self.date = datetime[0:10]
             self.datetime = datetime
-        elif date is not None and datetime is not None:
+        elif date != None and datetime != None:
             self.date = date
             self.datetime = datetime
         else:
@@ -736,7 +736,7 @@ class QA_OrderQueue():  # also the order tree ？？ what's the tree means?
         # 🛠 todo 是为了速度快把order对象转换成 df 对象的吗？
         #self.queue_df = self.queue_df.append(order.to_df(), ignore_index=True)
         #self.queue_df.set_index('order_id', drop=True, inplace=True)
-        if order is not None:
+        if order != None:
             self.order_list[order.order_id] = order
             return order
         else:

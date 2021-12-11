@@ -285,7 +285,7 @@ class QA_Position():
 
     @property
     def float_profit_long(self):
-        if self.market_preset is not None:
+        if self.market_preset != None:
             return self.last_price * self.volume_long * self.market_preset.get(
                 'unit_table',
                 1
@@ -293,7 +293,7 @@ class QA_Position():
 
     @property
     def float_profit_short(self):
-        if self.market_preset is not None:
+        if self.market_preset != None:
             return self.open_cost_short - self.last_price * self.volume_short * self.market_preset.get(
                 'unit_table',
                 1
@@ -305,7 +305,7 @@ class QA_Position():
 
     @property
     def position_profit_long(self):
-        if self.market_preset is not None:
+        if self.market_preset != None:
             return self.last_price * self.volume_long * self.market_preset.get(
                 'unit_table',
                 1
@@ -313,7 +313,7 @@ class QA_Position():
 
     @property
     def position_profit_short(self):
-        if self.market_preset is not None:
+        if self.market_preset != None:
             return self.position_cost_short - self.last_price * self.volume_short * self.market_preset.get(
                 'unit_table',
                 1

@@ -483,6 +483,10 @@ class CLI(cmd.Cmd):
                 QA_SU_save_stock_block("tdx")
                 QA_SU_save_future_list("tdx")
                 # QA_SU_save_stock_info('tdx')
+            elif len(arg) == 1 and arg[0] == "realtime":
+                #QA_SU_save_stock_realtime()
+                path = os.path.join(os.path.dirname(__file__), '../../config/incon.dat')
+                shutil.copy(path, '/tmp/incon.dat')
             elif len(arg) == 1 and arg[0] == "ts_all":
                 if (
                     QA_Setting()

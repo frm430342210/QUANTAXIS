@@ -150,14 +150,14 @@ def QA_util_log_info(logs, ui_log=None, ui_progress=None, ui_progress_int_value=
     logging.warning(logs)
 
     # 给GUI使用，更新当前任务到日志和进度
-    if ui_log is not None:
+    if ui_log != None:
         if isinstance(logs, str):
             ui_log.emit(logs)
         if isinstance(logs, list):
             for iStr in logs:
                 ui_log.emit(iStr)
 
-    if ui_progress is not None and ui_progress_int_value is not None:
+    if ui_progress != None and ui_progress_int_value != None:
         ui_progress.emit(ui_progress_int_value)
 
 
